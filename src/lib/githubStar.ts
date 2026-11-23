@@ -2,7 +2,8 @@
    to Doop on a few different days, never on a first visit, and never again
    once they starred or said no. Kept per browser, like the native-app promo. */
 
-export const GITHUB_REPO_URL = 'https://github.com/kgoedecke/doop'
+/* FusionWorks deploy: AGPL-3.0 §13 — users of this modified build get its source here */
+export const GITHUB_REPO_URL = 'https://github.com/FusionWorks/doop'
 
 const STORAGE_KEY = 'doop:github-star'
 /** Distinct days of use before the card is offered. */
