@@ -165,6 +165,10 @@ const schema = {
   AZURE_OPENAI_API_VERSION: str({ default: undefined }),
   AZURE_OPENAI_REASONING_EFFORT: str({ default: undefined }),
   RESIDENT_TASK_LIMIT: nonNegativeInt({ default: 0 }),
+  /* the resident agent's step cap for one run on the server's own key: a backstop
+     against a looping run, not a budget (a run on a person's own connection has
+     none); a redesign card gets a third more (80 at the default) */
+  DOOP_AGENT_MAX_TURNS: int(1)({ default: 60 }),
   /* incident kill switch: a frame write stops pushing a changed main into every
      other frame synchronously (each catches up on its own next write) */
   DOOP_DEFER_COMPONENT_PROPAGATION: bool({ default: false }),

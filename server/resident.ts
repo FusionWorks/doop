@@ -154,10 +154,11 @@ const RUN_TIME_LIMIT_MS = 30 * 60_000
 /* A run on Doop's own key keeps a turn backstop, so no runaway is billed to
    us: a model that calls one tool per turn (ChatGPT's) spends a dozen turns
    reading the canvas and searching before it writes anything. At 24, ordinary
-   runs finished at 20-23 and verified work was failed. */
-const SERVER_MAX_TURNS = 60
+   runs finished at 20-23 and verified work was failed. DOOP_AGENT_MAX_TURNS
+   raises it (default 60). */
+const SERVER_MAX_TURNS = env.DOOP_AGENT_MAX_TURNS
 /* a redesign card delivers an audit doc plus TWO draft frames in one run */
-const SERVER_MAX_REDESIGN_TURNS = 80
+const SERVER_MAX_REDESIGN_TURNS = Math.ceil((SERVER_MAX_TURNS * 4) / 3)
 /* A harness job still names a turn count: desktop shells before this release
    pass it to Claude Code (clamped to 80), and the Gemini cloud worker's schema
    takes at most 200. Current desktop shells pass Claude Code no turn limit. */
